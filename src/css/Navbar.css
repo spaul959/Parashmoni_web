@@ -1,0 +1,214 @@
+nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  display: flex;
+  min-height: var(--nav-height);
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px clamp(18px, 5vw, 56px);
+  border-bottom: 1px solid rgba(131, 39, 41, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.logo-link {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.logo-link:hover .nav-logo-img {
+  transform: scale(1.04);
+}
+
+.logo-text {
+  overflow: hidden;
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu-icon {
+  display: none;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  gap: 5px;
+  padding: 12px 11px;
+  border: 1px solid rgba(131, 39, 41, 0.22);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fff5f5 100%);
+  color: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(131, 39, 41, 0.12);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-icon:hover {
+  transform: translateY(-1px);
+}
+
+.menu-line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--primary-color);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-icon[aria-expanded="true"] .menu-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-icon[aria-expanded="true"] .menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon[aria-expanded="true"] .menu-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 26px);
+  list-style: none;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--text-dark);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+  height: 2px;
+  background: var(--primary-color);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+@media screen and (max-width: 900px) {
+  nav {
+    gap: 12px;
+  }
+
+  .nav-logo-img {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .menu-icon {
+    display: inline-grid;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 18px;
+    display: flex;
+    width: min(280px, calc(100vw - 36px));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 10px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.14);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    width: 100%;
+    min-height: 44px;
+    justify-content: flex-start;
+    padding: 0 14px;
+    border-radius: 8px;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links a:hover {
+    background: var(--surface-soft);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    padding-inline: 14px;
+  }
+
+  .logo-link {
+    gap: 9px;
+  }
+
+  .nav-logo-img {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  .logo-text {
+    max-width: 190px;
+    font-size: 21px;
+  }
+}

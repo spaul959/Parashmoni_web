@@ -1,0 +1,143 @@
+/* =========================================
+   Theme and Base
+========================================= */
+:root {
+  --primary-color: #832729;
+  --secondary-color: #b04b4b;
+  --accent-color: #d4af37;
+  --bg-color: #fdfbf7;
+  --surface: #ffffff;
+  --surface-soft: #fff5f5;
+  --text-dark: #2c2c2c;
+  --text-muted: #666666;
+  --text-light: #ffffff;
+  --border-soft: rgba(131, 39, 41, 0.12);
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --shadow: 0 14px 34px rgba(131, 39, 41, 0.1);
+  --nav-height: 84px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--bg-color);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+}
+
+.section {
+  padding: clamp(56px, 8vw, 92px) clamp(18px, 5vw, 64px);
+}
+
+.head {
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.head h1 {
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: none;
+  background: rgba(15, 5, 5, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.overlay.is-visible {
+  display: block;
+}
+
+.detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1002;
+  display: none;
+  width: min(92vw, 720px);
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.36);
+  transform: translate(-50%, -50%);
+}
+
+.detail.is-visible {
+  display: block;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: #f3eeee;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.closeBtn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --nav-height: 76px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .detail {
+    width: calc(100vw - 24px);
+    max-height: 86vh;
+    padding: 24px 16px;
+  }
+}
