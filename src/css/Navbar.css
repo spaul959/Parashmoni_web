@@ -42,7 +42,7 @@ nav {
   font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 2.1;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
