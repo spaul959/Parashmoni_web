@@ -9,7 +9,7 @@ const ContactForm = () => {
       </div>
       
       <div className="contact">
-        <h2>Get in Touch</h2>
+        <h2>Submit your Query</h2>
         
         {/* --- Formspree Magic Happens Here --- */}
         <form 
