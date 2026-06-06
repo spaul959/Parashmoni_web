@@ -15,7 +15,7 @@ const ContactForm = () => {
     
     try {
       // Sends it to Formspree in the background
-      const response = await fetch("https://formspree.io/f/YOUR_COPIED_LINK_HERE", {
+      const response = await fetch("https://formspree.io/f/xrevepqa", {
         method: 'POST',
         body: data,
         headers: {
