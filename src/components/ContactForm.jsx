@@ -41,7 +41,7 @@ const ContactForm = () => {
       </div>
       
       <form className="contact" onSubmit={handleSubmit}>
-        <h2>Get in Touch</h2>
+        <h2>Submit your query</h2>
         
         {/* Phone Number Input */}
         <input 
