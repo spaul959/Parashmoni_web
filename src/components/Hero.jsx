@@ -36,7 +36,7 @@ const Hero = () => {
         
         <div className="mainImage">
           {/* Fixed: Changed {images.hero} to direct path "/mains.png" */}
-          <img src={ImageTrackList.hero} alt="Medical Care Illustration" />
+          <img src={images.hero} alt="Medical Care Illustration" />
         </div>
       </div>
 
