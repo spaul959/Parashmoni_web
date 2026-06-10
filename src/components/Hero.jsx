@@ -49,8 +49,8 @@ const Hero = () => {
               <h2>আসন্ন হেলথ ক্যাম্প</h2>
               <div className="camp-details">
                 <div className="camp-info-box">
-                  <p><strong><i className="fa-regular fa-calendar"></i> তারিখ:</strong> [এখানে তারিখ দিন]</p>
-                  <p><strong><i className="fa-regular fa-clock"></i> সময়:</strong> [এখানে সময় দিন]</p>
+                  <p><strong><i className="fa-regular fa-calendar"></i> তারিখ:</strong> [৮ ই জুলাই, বুধবার]</p>
+                  <p><strong><i className="fa-regular fa-clock"></i> সময়:</strong> [সকাল ৮টা থেকে ২ টা পর্যন্ত]</p>
                   <p><strong><i className="fa-solid fa-location-dot"></i> স্থান:</strong> বলরামপুর স্টেশন রোড, ফুল চাঁদ স্কুলের কাছে, পিন-৭২৩১৪৩</p>
                 </div>
                 <ul className="camp-service-list">
