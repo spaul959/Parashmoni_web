@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { images } from '../config/assets';
 import '../css/Hero.css';
 
+
 const Hero = () => {
-  // State to control the pop-up modal
   const [isCampModalOpen, setIsCampModalOpen] = useState(false);
   const [isClinicModalOpen, setIsClinicModalOpen] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
@@ -24,40 +24,35 @@ const Hero = () => {
           
           <div className="hero-buttons">
             <button className="secondary-btn" onClick={() => setIsCampModalOpen(true)}>
-              <i className="fa-solid fa-notes-medical"></i>
-              Health Camp Details
+              <i className="fa-solid fa-notes-medical"></i> Health Camp Details
+            </button>
+            
+            {/* Added Clinic Details Button */}
+            <button className="secondary-btn" onClick={() => setIsClinicModalOpen(true)} style={{ backgroundColor: '#2c1011', border: '1px solid #fff' }}>
+              <i className="fa-solid fa-house-medical"></i> Clinic Details
             </button>
           </div>
         </div>
+        
         <div className="mainImage">
-          <img src={images.hero} alt="Medical Care Illustration" />
+          {/* Fixed: Changed {images.hero} to direct path "/mains.png" */}
+          <img src={ImageTrackList.hero} alt="Medical Care Illustration" />
         </div>
       </div>
 
-      {/* --- Health Camp Details Pop-Up Modal --- */}
+      {/* --- Health Camp Modal --- */}
       {isCampModalOpen && (
-        <>
-          <div className="overlay is-visible" onClick={() => setIsCampModalOpen(false)}></div>
-          
-          <div className="detail is-visible camp-modal">
-            <button className="closeBtn" onClick={() => setIsCampModalOpen(false)}>
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-            
+        <div className="overlay" onClick={() => setIsCampModalOpen(false)} style={{ display: 'block' }}>
+          <div className="detail camp-modal" style={{ display: 'block' }} onClick={(e) => e.stopPropagation()}>
+            <button className="closeBtn" onClick={() => setIsCampModalOpen(false)}><i className="fa-solid fa-xmark"></i></button>
             <div className="camp-content">
-              <h2>
-                আসন্ন হেলথ ক্যাম্প
-              </h2>
-              
+              <h2>আসন্ন হেলথ ক্যাম্প</h2>
               <div className="camp-details">
                 <div className="camp-info-box">
-                  <p><strong><i className="fa-regular fa-calendar"></i> তারিখ:</strong> [৮ ই জুলাই, বুধবার]</p>
-                  <p><strong><i className="fa-regular fa-clock"></i> সময়:</strong> [সকাল ৮টা থেকে ২ টা পর্যন্ত]</p>
+                  <p><strong><i className="fa-regular fa-calendar"></i> তারিখ:</strong> [এখানে তারিখ দিন]</p>
+                  <p><strong><i className="fa-regular fa-clock"></i> সময়:</strong> [এখানে সময় দিন]</p>
                   <p><strong><i className="fa-solid fa-location-dot"></i> স্থান:</strong> বলরামপুর স্টেশন রোড, ফুল চাঁদ স্কুলের কাছে, পিন-৭২৩১৪৩</p>
                 </div>
-
-                <p className="camp-list-title"><strong><i className="fa-solid fa-notes-medical"></i> স্বাস্থ্য শিবিরে যে সমস্ত পরীক্ষা ও চিকিৎসা করা হবে:</strong></p>
-                
                 <ul className="camp-service-list">
                   <li><strong>১.</strong> প্রেসার, সুগার পরীক্ষা</li>
                   <li><strong>২.</strong> হার্ট চেকআপ (ই সি জি)</li>
@@ -69,27 +64,19 @@ const Hero = () => {
                   <li><strong>৮.</strong> দাঁতের চিকিৎসা (ডেন্টাল চেকআপ)</li>
                   <li><strong>৯.</strong> রক্ত পরীক্ষা- হিমোগ্লোবিন, কোলেস্টেরল , ভিটামিন-ডি এলার্জি টেস্ট (IgE), HbA1C</li>
                 </ul>
-                
-                
 
-                {/* --- Google Form Registration Button --- */}
                 <div className="camp-actions">
-                  <a 
-                    href="https://forms.gle/sy3jJKudiX8AkxBN6" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="secondary-btn"
-                  >
-                    <i className="fa-solid fa-clipboard-list"></i>
+                  <a href="https://forms.gle/sy3jJKudiX8AkxBN6" target="_blank" rel="noopener noreferrer" className="secondary-btn">
                     Register Now
                   </a>
                 </div>
-
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
+
+      {/* --- Clinic Details Modal --- */}
       {isClinicModalOpen && (
         <div className="overlay" onClick={() => setIsClinicModalOpen(false)} style={{ display: 'block' }}>
           <div className="detail camp-modal" style={{ display: 'block' }} onClick={(e) => e.stopPropagation()}>
