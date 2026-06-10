@@ -5,6 +5,15 @@ import '../css/Hero.css';
 const Hero = () => {
   // State to control the pop-up modal
   const [isCampModalOpen, setIsCampModalOpen] = useState(false);
+  const [isClinicModalOpen, setIsClinicModalOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
+
+  const doctors = [
+    { name: "Dr. Subham Paul", spec: "জেনারেল ফিজিসিয়ান", avail: "Wednesday & Sunday, 9:30 AM - 12:30 PM" },
+    { name: "Dr. Kironmoy Das", spec: "জেনারেল ফিজিসিয়ান ও শিশুরোগ", avail: "Tue & Thu, 2 PM - 5 PM" },
+    { name: "Dr. Aniket Chatterjee", spec: "স্নায়ু- মানসিক রোগ বিশেষজ্ঞ", avail: "Wed & Fri, 10 AM - 2 PM" },
+    { name: "Dr. Tanmoy Gorain", spec: "জেনারেল ফিজিশিয়ান ও চর্মরোগ", avail: "মঙ্গলবার ও বৃহস্পতিবার" }
+  ];
 
   return (
     <>
@@ -80,6 +89,41 @@ const Hero = () => {
             </div>
           </div>
         </>
+      )}
+      {isClinicModalOpen && (
+        <div className="overlay" onClick={() => setIsClinicModalOpen(false)} style={{ display: 'block' }}>
+          <div className="detail camp-modal" style={{ display: 'block' }} onClick={(e) => e.stopPropagation()}>
+            <button className="closeBtn" onClick={() => setIsClinicModalOpen(false)}><i className="fa-solid fa-xmark"></i></button>
+            <div className="camp-content">
+              <h2>Clinic Details</h2>
+              {!selectedDoctor ? (
+                <div className="camp-details">
+                  <p>Welcome to Parashmani Foundation Clinic.</p>
+                  <p><strong>Location:</strong> Balarampur Station Road.</p>
+                  <h4 style={{ margin: '20px 0 10px' }}>Select a Doctor:</h4>
+                  <div className="hero-buttons" style={{ justifyContent: 'center' }}>
+                    {doctors.map((doc, index) => (
+                      <button key={index} className="secondary-btn" onClick={() => setSelectedDoctor(doc)}>
+                        {doc.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="camp-details">
+                  <button onClick={() => setSelectedDoctor(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--primary-color)' }}>
+                    <i className="fa-solid fa-arrow-left"></i> Back to Doctors
+                  </button>
+                  <div className="camp-info-box" style={{ marginTop: '15px' }}>
+                    <h3>{selectedDoctor.name}</h3>
+                    <p><strong>Specialization:</strong> {selectedDoctor.spec}</p>
+                    <p><strong>Availability:</strong> {selectedDoctor.avail}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       )}
     </>
   );
