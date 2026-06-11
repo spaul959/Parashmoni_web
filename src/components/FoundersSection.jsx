@@ -13,7 +13,7 @@ const FoundersSection = () => {
         <div className="founder-card">
           {/* Updated path */}
           <img src="/assets/images/subham.jpg" alt="Subham Paul" />
-          <h3>Subham Paul</h3>
+          <h3>Dr. Subham Paul</h3>
           <p>Co-Founder</p>
         </div>
         
