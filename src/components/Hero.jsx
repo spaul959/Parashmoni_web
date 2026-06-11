@@ -9,10 +9,10 @@ const Hero = () => {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   const doctors = [
-    { name: "Dr. Subham Paul", spec: "জেনারেল ফিজিসিয়ান", avail: "Wednesday & Sunday, 9:30 AM - 12:30 PM" },
-    { name: "Dr. Kironmoy Das", spec: "জেনারেল ফিজিসিয়ান ও শিশুরোগ", avail: "Tue & Thu, 2 PM - 5 PM" },
-    { name: "Dr. Aniket Chatterjee", spec: "স্নায়ু- মানসিক রোগ বিশেষজ্ঞ", avail: "Wed & Fri, 10 AM - 2 PM" },
-    { name: "Dr. Tanmoy Gorain", spec: "জেনারেল ফিজিশিয়ান ও চর্মরোগ", avail: "মঙ্গলবার ও বৃহস্পতিবার" }
+    { name: "Dr. Subham Paul", spec: "জেনারেল ফিজিসিয়ান", avail: "বুধবার & রবিবার, 9:30 AM - 12:30 PM" },
+    { name: "Dr. Kironmoy Das", spec: "জেনারেল ফিজিসিয়ান ও শিশুরোগ", avail: "মঙ্গলবার ও বৃহস্পতিবার, 2 PM - 5 PM" },
+    { name: "Dr. Aniket Chatterjee", spec: "স্নায়ু- মানসিক রোগ বিশেষজ্ঞ", avail: "বুধবার & শুক্রবার, 10 AM - 2 PM" },
+    { name: "Dr. Tanmoy Gorain", spec: "জেনারেল ফিজিশিয়ান ও চর্মরোগ", avail: "মঙ্গলবার ও বৃহস্পতিবার - 9:30 AM - 12:30 PM" }
   ];
 
   return (
