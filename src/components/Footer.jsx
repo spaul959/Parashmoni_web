@@ -13,6 +13,9 @@ const Footer = () => {
       <div className="text">
         <h3>Best Teams</h3>
         <p>Doctors</p>
+        <p>Engineers</p> 
+        <p>Teachers</p> 
+        <p>Graduates</p>
         
       </div>
       <div className="text">
